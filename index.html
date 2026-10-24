@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MD Ashraful Islam | Full Stack Developer &amp; Software Engineer</title>
-  <meta name="description" content="Portfolio of MD Ashraful Islam, Full Stack Developer and Software Engineer specializing in production REST APIs, business workflow automation, and LLM-powered applications.">
+  <meta name="description" content="One-page personal portfolio of MD Ashraful Islam, Full Stack Developer and Software Engineer building production REST APIs, workflow automation, and LLM applications.">
 
   <!-- Google Fonts: Sora (Headings) & DM Sans (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,32 +12,33 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- Shared Desktop & Mobile Header -->
+  <!-- Sticky Desktop & Mobile Header -->
   <header class="site-header">
     <div class="site-wrapper">
       <nav class="site-nav" aria-label="Main Navigation">
         <!-- Logo "MA" with neon ring -->
-        <a href="index.html" class="logo" aria-label="MD Ashraful Islam Home">
+        <a href="#home" class="logo" aria-label="MD Ashraful Islam - Home">
           <span>MA</span>
         </a>
 
         <!-- Centered Pill Tab Bar (Desktop >= 760px) -->
         <div class="nav-tab-bar" role="tablist">
-          <a href="index.html" class="nav-tab active" role="tab" aria-selected="true">
+          <a href="#home" class="nav-tab active" role="tab" aria-selected="true" aria-current="page">
             <span class="tab-dot" aria-hidden="true"></span>Home
           </a>
-          <a href="work.html" class="nav-tab" role="tab" aria-selected="false">Work</a>
-          <a href="skills.html" class="nav-tab" role="tab" aria-selected="false">Skills</a>
-          <a href="skills.html#research" class="nav-tab" role="tab" aria-selected="false">Research</a>
-          <a href="skills.html#contact" class="nav-tab" role="tab" aria-selected="false">Contact</a>
+          <a href="#work" class="nav-tab" role="tab" aria-selected="false">Work</a>
+          <a href="#skills" class="nav-tab" role="tab" aria-selected="false">Skills</a>
+          <a href="#research" class="nav-tab" role="tab" aria-selected="false">Research</a>
+          <a href="#contact" class="nav-tab" role="tab" aria-selected="false">Contact</a>
         </div>
 
         <!-- Right "Let's talk" Neon Button -->
         <div class="nav-action">
-          <a href="skills.html#contact" class="btn btn-neon">Let's talk</a>
+          <a href="#contact" class="btn btn-neon">Let's talk</a>
         </div>
       </nav>
     </div>
@@ -45,96 +46,401 @@
 
   <!-- Main Content Container -->
   <main class="site-wrapper" id="main-content">
-    
-    <!-- Hero Section -->
-    <section class="hero-section" aria-labelledby="hero-title">
-      <!-- Left Column: Bio & Calls to Action -->
-      <div class="hero-left">
-        <!-- Subtitle Pill -->
-        <div class="badge-pill">
-          <span class="neon-dot" aria-hidden="true"></span>
-          <span>Software Engineer &middot; MERN / TypeScript</span>
+
+    <!-- ====================================================================
+         SECTION 1: #home (Hero + Stats + About)
+         ==================================================================== -->
+    <section id="home" aria-labelledby="hero-title">
+      
+      <!-- Hero Top Grid -->
+      <div class="hero-section">
+        <!-- Left Column: Bio & Calls to Action -->
+        <div class="hero-left">
+          <!-- Subtitle Pill -->
+          <div class="badge-pill">
+            <span class="neon-dot" aria-hidden="true"></span>
+            <span>Software Engineer &middot; MERN / TypeScript</span>
+          </div>
+
+          <!-- Primary Heading -->
+          <h1 id="hero-title" class="hero-title">MD Ashraful Islam</h1>
+
+          <!-- Neon Underline Bar -->
+          <div class="neon-bar" aria-hidden="true"></div>
+
+          <!-- Hero Paragraph -->
+          <p class="hero-desc">
+            Full-stack developer building production REST APIs, business-workflow automation and LLM-powered tools. I turn paper registers and handwritten ledgers into software teams rely on every day.
+          </p>
+
+          <!-- Action Buttons Group -->
+          <div class="btn-group">
+            <a href="#work" class="btn btn-neon">View my work</a>
+            <a href="#cv-modal" class="btn btn-raised">Download CV</a>
+          </div>
+
+          <!-- 3 Stat Cards (Raised Surface, Lift on Hover) -->
+          <div class="stat-grid" aria-label="Key Metrics">
+            <article class="stat-card raised">
+              <span class="stat-value">50&ndash;100</span>
+              <span class="stat-label">daily leads in the CRM</span>
+            </article>
+            <article class="stat-card raised">
+              <span class="stat-value">3-stage</span>
+              <span class="stat-label">payment approval engine</span>
+            </article>
+            <article class="stat-card raised">
+              <span class="stat-value">3</span>
+              <span class="stat-label">research papers</span>
+            </article>
+          </div>
         </div>
 
-        <!-- Primary Heading -->
-        <h1 id="hero-title" class="hero-title">MD Ashraful Islam</h1>
+        <!-- Right Column: 3D Scene with Profile Photo -->
+        <div class="hero-right" aria-hidden="true">
+          <div class="scene-3d">
+            <!-- Tilted Neon Glowing Circle Ring -->
+            <div class="ring-3d"></div>
 
-        <!-- Neon Underline Bar -->
-        <div class="neon-bar" aria-hidden="true"></div>
+            <!-- Neumorphic Sphere with Profile Photo -->
+            <div class="sphere-3d">
+              <img src="assets/profile.png" alt="MD Ashraful Islam" width="280" height="280" loading="eager">
+            </div>
 
-        <!-- Hero Paragraph -->
-        <p class="hero-desc">
-          Full-stack developer building production REST APIs, business-workflow automation and LLM-powered tools. I turn paper registers and handwritten ledgers into software teams rely on every day.
-        </p>
-
-        <!-- CTA Buttons Group -->
-        <div class="btn-group">
-          <a href="work.html" class="btn btn-neon">View my work</a>
-          <a href="skills.html#contact" class="btn btn-raised">Download CV</a>
-        </div>
-
-        <!-- 3 Stat Cards (Raised Surface, Lift on Hover) -->
-        <div class="stat-grid">
-          <article class="stat-card raised">
-            <span class="stat-value">50&ndash;100</span>
-            <span class="stat-label">daily leads in the CRM</span>
-          </article>
-          <article class="stat-card raised">
-            <span class="stat-value">3-stage</span>
-            <span class="stat-label">payment approval engine</span>
-          </article>
-          <article class="stat-card raised">
-            <span class="stat-value">3</span>
-            <span class="stat-label">research papers</span>
-          </article>
+            <!-- Floating Raised Chips -->
+            <div class="floating-chip raised chip-1">AI/ML &middot; Automation</div>
+            <div class="floating-chip raised chip-2">Jr. Software &middot; Engineer</div>
+            <div class="floating-chip raised chip-3">Research</div>
+          </div>
         </div>
       </div>
 
-      <!-- Right Column: 3D Scene -->
-      <div class="hero-right" aria-hidden="true">
-        <div class="scene-3d">
-          <!-- (a) 420px Tilted Neon Glowing Circle Ring -->
-          <div class="ring-3d"></div>
+      <!-- About Strip (Pressed Surface) -->
+      <div class="about-strip pressed" aria-labelledby="about-heading">
+        <div class="about-left">
+          <span class="section-label">ABOUT</span>
+          <h2 id="about-heading" class="about-title">From paper registers to production pipelines.</h2>
+        </div>
+        <div class="about-right">
+          <p class="about-desc">
+            B.Sc. in Computer Science &amp; Engineering from IUBAT (CGPA 3.62). Software Engineer at ICS System Solution, building a lead-to-deal CRM and an investment lifecycle engine, plus AI/ML research on Bangla language and vision problems.
+          </p>
+        </div>
+      </div>
 
-          <!-- (b) 280px Pearl Neumorphic Floating Sphere with "YOUR PHOTO" -->
-          <div class="sphere-3d">
-            <span class="sphere-placeholder">YOUR PHOTO</span>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: #work (Experience Timeline, Project Cards & Featured Project)
+         ==================================================================== -->
+    <section id="work" aria-labelledby="experience-title">
+      <!-- Header & Timeline -->
+      <div class="page-header">
+        <span class="section-label">EXPERIENCE</span>
+        <h2 id="experience-title" class="page-title">ICS System Solution</h2>
+
+        <!-- Vertical Timeline -->
+        <div class="timeline" role="list" aria-label="Experience Timeline at ICS System Solution">
+          <!-- Node 1: Current Full-time Role -->
+          <div class="timeline-item timeline-item-first" role="listitem">
+            <div class="timeline-marker" aria-hidden="true">
+              <div class="timeline-dot-neon"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-date timeline-date-neon">MAY 2026 &ndash; PRESENT</span>
+              <span class="timeline-role">Jr. Software Engineer (full-time)</span>
+            </div>
           </div>
 
-          <!-- (c) Three Floating Raised Chips -->
-          <div class="floating-chip raised chip-1">React &middot; Tailwind</div>
-          <div class="floating-chip raised chip-2">Node &middot; Express</div>
-          <div class="floating-chip raised chip-3">LLM tool-calling</div>
+          <!-- Node 2: Intern Role -->
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-marker" aria-hidden="true">
+              <div class="timeline-dot-pressed"></div>
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-date timeline-date-muted">JAN 2026</span>
+              <span class="timeline-role">Software Engineering Intern</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two Project Cards (Side-by-Side Flex Wrap) -->
+      <div class="projects-grid" aria-label="Production Systems">
+        <!-- Card 1: Lead-to-Deal CRM Pipeline -->
+        <article class="project-card raised">
+          <span class="card-badge badge-crm">CRM</span>
+          <h3 class="project-title">Lead-to-Deal CRM Pipeline</h3>
+          <p class="project-desc">
+            Lead management module built end to end, from MySQL schema to REST API to React/Tailwind dashboard. Interaction timeline logging and @-mention notifications replaced a paper register.
+          </p>
+
+          <div class="mini-stats-grid" aria-label="CRM Metrics">
+            <div class="mini-stat">
+              <span class="mini-stat-val">800&ndash;1000</span>
+              <span class="mini-stat-lbl">leads per day</span>
+            </div>
+            <div class="mini-stat">
+              <span class="mini-stat-val">5</span>
+              <span class="mini-stat-lbl">intake channels</span>
+            </div>
+            <div class="mini-stat">
+              <span class="mini-stat-val">6</span>
+              <span class="mini-stat-lbl">pipeline stages</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Investment Lifecycle Engine -->
+        <article class="project-card raised">
+          <span class="card-badge badge-fintech">FINTECH WORKFLOW</span>
+          <h3 class="project-title">Investment Lifecycle Engine</h3>
+          <p class="project-desc">
+            Greenfield engine in Node.js, Express and PostgreSQL/Knex covering booking, membership and installment tracking. It replaced a handwritten ledger the ops team used for every payment.
+          </p>
+
+          <div class="approval-flow" aria-label="3-Stage Approval Sequence">
+            <span class="approval-chip">Accountant</span>
+            <span class="approval-arrow" aria-hidden="true">&rarr;</span>
+            <span class="approval-chip">Data-Entry</span>
+            <span class="approval-arrow" aria-hidden="true">&rarr;</span>
+            <span class="approval-chip approval-chip-glow">Management</span>
+          </div>
+
+          <footer class="approval-footer">
+            Auto installment schedules &middot; share calculation &middot; nightly lapsed-member cron
+          </footer>
+        </article>
+      </div>
+
+      <!-- Featured Project (Wide Pressed Container) -->
+      <div class="featured-project pressed" aria-labelledby="featured-heading">
+        <div class="screenshot-box" aria-hidden="true">
+          <span class="screenshot-label">PROJECT SCREENSHOT</span>
+        </div>
+
+        <div class="featured-content">
+          <span class="section-label">FEATURED PROJECT</span>
+          <h3 id="featured-heading" class="featured-title">PropertyHub AI</h3>
+          <p class="featured-desc">
+            B2B2C real estate marketplace: Stripe payments, installment plans with refund rules, JWT role-based access, and an LLM assistant (Groq / Llama 3.3 70B) that answers from live MongoDB state.
+          </p>
+
+          <div class="btn-group">
+            <a href="https://propertyhub-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-neon">Live demo</a>
+            <a href="https://github.com/ashraful009/propertyhub-ai" target="_blank" rel="noopener noreferrer" class="btn btn-raised">GitHub repo</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- About Strip Section (Pressed Surface) -->
-    <section class="about-strip pressed" aria-labelledby="about-heading">
-      <div class="about-left">
-        <span class="section-label">ABOUT</span>
-        <h2 id="about-heading" class="about-title">From paper registers to production pipelines.</h2>
+    <!-- ====================================================================
+         SECTION 3: #skills (Stack & Tools Matrix)
+         ==================================================================== -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="page-header">
+        <span class="section-label">SKILLS</span>
+        <h2 id="skills-heading" class="page-title">Stack &amp; tools</h2>
+
+        <div class="skills-container pressed" aria-label="Skills by Category">
+          <!-- Row 1: Languages -->
+          <div class="skill-row">
+            <span class="skill-category">Languages</span>
+            <div class="skill-chips">
+              <span class="skill-chip">JavaScript</span>
+              <span class="skill-chip">TypeScript</span>
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">C++</span>
+              <span class="skill-chip">C</span>
+            </div>
+          </div>
+
+          <!-- Row 2: Backend -->
+          <div class="skill-row">
+            <span class="skill-category">Backend</span>
+            <div class="skill-chips">
+              <span class="skill-chip">Node.js</span>
+              <span class="skill-chip">Express.js</span>
+              <span class="skill-chip">REST API design</span>
+              <span class="skill-chip">MVC &middot; OOP</span>
+              <span class="skill-chip">JWT &middot; RBAC</span>
+            </div>
+          </div>
+
+          <!-- Row 3: Frontend -->
+          <div class="skill-row">
+            <span class="skill-category">Frontend</span>
+            <div class="skill-chips">
+              <span class="skill-chip">React</span>
+              <span class="skill-chip">Tailwind CSS</span>
+              <span class="skill-chip">Zustand</span>
+              <span class="skill-chip">HTML &middot; CSS</span>
+            </div>
+          </div>
+
+          <!-- Row 4: Databases -->
+          <div class="skill-row">
+            <span class="skill-category">Databases</span>
+            <div class="skill-chips">
+              <span class="skill-chip">PostgreSQL</span>
+              <span class="skill-chip">MySQL</span>
+              <span class="skill-chip">MongoDB</span>
+              <span class="skill-chip">Prisma</span>
+              <span class="skill-chip">Knex</span>
+            </div>
+          </div>
+
+          <!-- Row 5: AI / LLM (with faint cyan glow) -->
+          <div class="skill-row">
+            <span class="skill-category">AI / LLM</span>
+            <div class="skill-chips">
+              <span class="skill-chip skill-chip-glow">Prompt engineering</span>
+              <span class="skill-chip skill-chip-glow">Function-calling</span>
+              <span class="skill-chip skill-chip-glow">AI agents</span>
+            </div>
+          </div>
+
+          <!-- Row 6: Tools -->
+          <div class="skill-row">
+            <span class="skill-category">Tools</span>
+            <div class="skill-chips">
+              <span class="skill-chip">Git &middot; GitHub</span>
+              <span class="skill-chip">Postman</span>
+              <span class="skill-chip">Render &middot; Vercel</span>
+              <span class="skill-chip">Jupyter</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="about-right">
-        <p class="about-desc">
-          B.Sc. in Computer Science &amp; Engineering from IUBAT (CGPA 3.62). Software Engineer at ICS System Solution, building a lead-to-deal CRM and an investment lifecycle engine, plus AI/ML research on Bangla language and vision problems.
-        </p>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4: #research (AI/ML Publications)
+         ==================================================================== -->
+    <section id="research" class="research-section" aria-labelledby="research-heading">
+      <span class="section-label">RESEARCH</span>
+      <h2 id="research-heading" class="research-title">AI/ML publications</h2>
+
+      <div class="research-list" role="list">
+        <!-- Paper 1: Neon Badge, Card Glow, Best Paper Award -->
+        <article class="research-card raised research-card-featured" role="listitem">
+          <div class="paper-badge paper-badge-neon" aria-label="Paper 1">1</div>
+          <div class="paper-content">
+            <h3 class="paper-title">Bangladeshi Vehicle License Plate Recognition Using Neural Network and Deep Learning</h3>
+            <p class="paper-venue">Int'l Conf. on Computational Intelligence and Information Retrieval (book chapter), 2025</p>
+          </div>
+          <span class="award-badge">Best Paper Award</span>
+        </article>
+
+        <!-- Paper 2: Pressed Badge -->
+        <article class="research-card raised" role="listitem">
+          <div class="paper-badge paper-badge-pressed" aria-label="Paper 2">2</div>
+          <div class="paper-content">
+            <h3 class="paper-title">BanglaBERT&ndash;BiLSTM: Hybrid Architecture for Multiclass Mental Health Classification in Bengali Social Media Text</h3>
+            <p class="paper-venue">28th Int'l Conf. on Computer and Information Technology (ICCIT), 2025</p>
+          </div>
+        </article>
+
+        <!-- Paper 3: Pressed Badge -->
+        <article class="research-card raised" role="listitem">
+          <div class="paper-badge paper-badge-pressed" aria-label="Paper 3">3</div>
+          <div class="paper-content">
+            <h3 class="paper-title">BanglishBERT&ndash;CNN&ndash;MTL: Hybrid Multi-Task Learning for Aspect-Based Sentiment Analysis in Low-Resource Banglish Text</h3>
+            <p class="paper-venue">IEEE 2nd Int'l Conf. on Quantum Photonics, AI &amp; Networking (QPAIN), 2026</p>
+          </div>
+        </article>
       </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 5: #contact (Contact Form & Information)
+         ==================================================================== -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="contact-container raised">
+        <!-- Left Column: Details & Direct Links -->
+        <div class="contact-left">
+          <span class="section-label">CONTACT</span>
+          <h2 id="contact-heading" class="contact-title">Let's build something real.</h2>
+          <p class="contact-desc">
+            Looking to apply full-stack and workflow-automation skills to real-world business products.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:mdashrafulislam0807@gmail.com" class="contact-link-item">
+              <span>mdashrafulislam0807@gmail.com</span>
+            </a>
+            <a href="tel:+8801608290927" class="contact-link-item">
+              <span>+880-1608290927</span>
+            </a>
+            <a href="https://github.com/ashraful009" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+              <span>github.com/ashraful009</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Accessible Form with Real Labels -->
+        <form action="#" method="post" class="contact-form" aria-label="Contact Ashraful">
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" name="name" class="form-input" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-input" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" rows="3" class="form-textarea" required></textarea>
+          </div>
+
+          <div>
+            <button type="submit" class="btn-submit">Send message</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Site Footer -->
+      <footer class="site-footer">
+        <p>&copy; 2026 MD Ashraful Islam</p>
+      </footer>
     </section>
 
   </main>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="site-wrapper">
-      <p>&copy; 2026 MD Ashraful Islam</p>
-    </div>
-  </footer>
+  <!-- ====================================================================
+       CV MODAL (Pure HTML + CSS :target Popup)
+       ==================================================================== -->
+  <div id="cv-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
+    <!-- Click backdrop to close and return to #home -->
+    <a href="#home" class="modal-backdrop-close" aria-label="Close CV preview modal"></a>
 
-  <!-- Mobile Fixed Bottom Icon Bar (< 760px) -->
-  <nav class="mobile-bottom-bar" aria-label="Mobile Bottom Navigation">
-    <!-- Home (Active) -->
-    <a href="index.html" class="mobile-nav-link active" aria-label="Home" aria-current="page">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="cv-modal-title" class="modal-title">Ashraful-CV.pdf</h3>
+        <div class="modal-actions">
+          <a href="assets/Ashraful-CV.pdf" download="Ashraful-CV.pdf" class="btn btn-neon">Download</a>
+          <a href="#home" class="modal-close" aria-label="Close CV modal">&times;</a>
+        </div>
+      </div>
+      <div class="modal-body">
+        <object data="assets/Ashraful-CV.pdf#toolbar=0" type="application/pdf" width="100%" height="100%">
+          <p class="modal-fallback">
+            Your browser cannot preview PDFs. Use the Download button.
+          </p>
+        </object>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MOBILE BOTTOM ICON BAR (< 760px)
+       ==================================================================== -->
+  <nav class="mobile-bottom-bar" aria-label="Mobile Navigation">
+    <!-- Home -->
+    <a href="#home" class="mobile-nav-link active" aria-label="Home" aria-current="page">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
         <polyline points="9 22 9 12 15 12 15 22"/>
@@ -142,7 +448,7 @@
     </a>
 
     <!-- Work -->
-    <a href="work.html" class="mobile-nav-link" aria-label="Work">
+    <a href="#work" class="mobile-nav-link" aria-label="Work">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect width="20" height="14" x="2" y="7" rx="2" ry="2"/>
         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
@@ -150,7 +456,7 @@
     </a>
 
     <!-- Skills -->
-    <a href="skills.html" class="mobile-nav-link" aria-label="Skills">
+    <a href="#skills" class="mobile-nav-link" aria-label="Skills">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="16 18 22 12 16 6"/>
         <polyline points="8 6 2 12 8 18"/>
@@ -158,7 +464,7 @@
     </a>
 
     <!-- Research -->
-    <a href="skills.html#research" class="mobile-nav-link" aria-label="Research">
+    <a href="#research" class="mobile-nav-link" aria-label="Research">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M10 2v7.31L4.69 17.5A2 2 0 0 0 6.34 20.5h11.32a2 2 0 0 0 1.65-3L14 9.31V2"/>
         <line x1="8.5" x2="15.5" y1="2" y2="2"/>
@@ -167,7 +473,7 @@
     </a>
 
     <!-- Contact -->
-    <a href="skills.html#contact" class="mobile-nav-link" aria-label="Contact">
+    <a href="#contact" class="mobile-nav-link" aria-label="Contact">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect width="20" height="16" x="2" y="4" rx="2"/>
         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>

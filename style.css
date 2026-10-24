@@ -1,11 +1,11 @@
 /* ==========================================================================
    DESIGN SYSTEM ("Final Mix": Pearl Aura)
-   MD Ashraful Islam - Full Stack Developer Portfolio
-   Pure HTML5 & CSS3 - Zero JavaScript - Fully Responsive & Accessible
+   MD Ashraful Islam - Full Stack Developer / Software Engineer
+   One-Page Responsive Portfolio (HTML5 + CSS3 + 20-line Vanilla Scroll-Spy)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. CSS Custom Properties / Design Tokens
+   1. Design Tokens & CSS Custom Properties
    -------------------------------------------------------------------------- */
 :root {
   /* Color Palette */
@@ -16,21 +16,20 @@
   --muted: #4a5570;
   --neon: #19e3ff;
   --neon-2: #7d9bff;
-  --neon-text: #0a6f85; /* Contrast ratio > 4.5:1 against #eef2f9 (WCAG AA) */
-  --neon-dark: #07122b; /* Dark text for neon buttons & badges (WCAG AAA) */
+  --neon-text: #0a6f85; /* Accessible contrast > 4.5:1 on #eef2f9 */
+  --neon-dark: #07122b; /* Accessible dark text on neon elements */
 
-  /* Neumorphic Surface Shadows */
+  /* Neumorphic Surfaces */
   --surface-raised: 10px 10px 24px var(--shadow-dark), -10px -10px 24px var(--shadow-light);
   --surface-raised-sm: 6px 6px 14px var(--shadow-dark), -6px -6px 14px var(--shadow-light);
   --surface-raised-hover: 14px 14px 28px var(--shadow-dark), -14px -14px 28px var(--shadow-light);
   --surface-pressed: inset 5px 5px 12px var(--shadow-dark), inset -5px -5px 12px var(--shadow-light);
   --surface-pressed-deep: inset 8px 8px 18px var(--shadow-dark), inset -8px -8px 18px var(--shadow-light);
 
-  /* Neon Gradients & Glows */
+  /* Neon Gradients & Ambient Glows */
   --neon-gradient: linear-gradient(135deg, var(--neon), var(--neon-2));
   --neon-glow: 0 0 24px rgba(25, 227, 255, 0.55);
   --neon-glow-lg: 0 0 34px rgba(25, 227, 255, 0.75);
-  --neon-ring: 0 0 24px rgba(25, 227, 255, 0.4);
 
   /* Radii */
   --radius-card: 32px;
@@ -41,13 +40,13 @@
   --font-heading: 'Sora', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 
-  /* Layout Fluid Spacing */
+  /* Layout Spacing */
   --page-pad: clamp(16px, 4vw, 72px);
   --max-width: 1220px;
 }
 
 /* --------------------------------------------------------------------------
-   2. Reset & Global Baseline
+   2. Reset & Baseline
    -------------------------------------------------------------------------- */
 *,
 *::before,
@@ -59,6 +58,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 96px; /* Offset for sticky nav */
   font-size: 16px;
   background-color: var(--bg);
   overflow-x: hidden;
@@ -73,12 +73,12 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  padding-bottom: 120px; /* 120px page bottom padding on mobile so bottom bar never covers content */
+  padding-bottom: 120px; /* 120px bottom padding on mobile so bar never covers content */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ambient Top-Right Soft Cyan Radial Glow (480px) */
+/* Top-Right Ambient Cyan Glow (480px) */
 body::before {
   content: '';
   position: fixed;
@@ -92,7 +92,7 @@ body::before {
   z-index: 0;
 }
 
-/* Visible Focus Outline Accessibility */
+/* Accessible focus ring */
 :focus-visible {
   outline: 2px solid var(--neon);
   outline-offset: 3px;
@@ -117,7 +117,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   3. Neumorphic Surfaces & Utility Classes
+   3. Neumorphic Surface Classes
    -------------------------------------------------------------------------- */
 .raised {
   background: var(--bg);
@@ -179,7 +179,6 @@ textarea {
   margin-bottom: clamp(24px, 3.5vw, 36px);
 }
 
-/* Subtitle Pill */
 .badge-pill {
   display: inline-flex;
   align-items: center;
@@ -205,7 +204,6 @@ textarea {
   flex-shrink: 0;
 }
 
-/* Section label */
 .section-label {
   display: inline-block;
   font-family: var(--font-heading);
@@ -218,7 +216,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   5. Shared Navigation (Desktop Tab Bar & Mobile Bottom Bar)
+   5. Sticky Header & Shared Navigation
    -------------------------------------------------------------------------- */
 .site-wrapper {
   position: relative;
@@ -230,8 +228,10 @@ textarea {
 }
 
 .site-header {
-  padding-top: clamp(16px, 2.5vw, 28px);
-  padding-bottom: clamp(14px, 2vw, 24px);
+  position: sticky;
+  top: 16px;
+  z-index: 900;
+  padding: 8px 0;
 }
 
 .site-nav {
@@ -241,7 +241,7 @@ textarea {
   gap: 16px;
 }
 
-/* Logo "MA" with neon ring */
+/* Round "MA" logo with neon ring */
 .logo {
   display: inline-flex;
   align-items: center;
@@ -275,7 +275,7 @@ textarea {
   transform: translateY(-2px);
 }
 
-/* Center Pill Tab Bar (Desktop >= 760px) */
+/* Desktop Pill Tab Bar (>= 760px) */
 .nav-tab-bar {
   display: none;
   align-items: center;
@@ -370,7 +370,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   6. Homepage Hero Section
+   6. Section #home: Hero, Stats & About Strip
    -------------------------------------------------------------------------- */
 .hero-section {
   display: flex;
@@ -423,7 +423,7 @@ textarea {
   margin-bottom: 28px;
 }
 
-/* Stat Cards: Three Compact Equal Columns */
+/* Stat Cards: 3 compact equal columns */
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -466,9 +466,7 @@ textarea {
   font-weight: 500;
 }
 
-/* --------------------------------------------------------------------------
-   7. 3D Perspective Scene
-   -------------------------------------------------------------------------- */
+/* 3D Scene with Profile Photo */
 .scene-3d {
   position: relative;
   width: 100%;
@@ -479,7 +477,6 @@ textarea {
   justify-content: center;
 }
 
-/* 420px tilted circle ring */
 .ring-3d {
   position: absolute;
   width: 420px;
@@ -492,32 +489,28 @@ textarea {
   z-index: 1;
 }
 
-/* 280px pearl sphere */
 .sphere-3d {
   position: relative;
   z-index: 2;
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  background: radial-gradient(circle at 32% 26%, #ffffff 0%, #e4eaf6 45%, #c8d2e6 100%);
-  box-shadow: 22px 28px 50px #c0c9dd, -14px -14px 36px #ffffff, inset -8px -8px 20px rgba(192, 201, 221, 0.35);
+  box-shadow: 22px 28px 50px #c0c9dd, -14px -14px 36px #ffffff;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   animation: float 6s ease-in-out infinite;
 }
 
-.sphere-placeholder {
-  font-family: var(--font-heading);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-  opacity: 0.85;
-  text-transform: uppercase;
+.sphere-3d img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
-/* Floating Raised Chips */
 .floating-chip {
   position: absolute;
   z-index: 3;
@@ -550,9 +543,7 @@ textarea {
   animation-delay: -4s;
 }
 
-/* --------------------------------------------------------------------------
-   8. About Strip
-   -------------------------------------------------------------------------- */
+/* About Strip */
 .about-strip {
   border-radius: var(--radius-card);
   padding: clamp(24px, 4vw, 44px);
@@ -579,7 +570,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   9. Work Page Styles: Experience Header & Timeline
+   7. Section #work: Experience Timeline, Project Cards & Featured Project
    -------------------------------------------------------------------------- */
 .page-header {
   padding-top: clamp(16px, 3vw, 36px);
@@ -596,7 +587,6 @@ textarea {
   margin-top: 4px;
 }
 
-/* Timeline */
 .timeline {
   display: flex;
   flex-direction: column;
@@ -683,9 +673,7 @@ textarea {
   line-height: 1.3;
 }
 
-/* --------------------------------------------------------------------------
-   10. Work Page: Project Cards & Featured Project
-   -------------------------------------------------------------------------- */
+/* Two Project Cards */
 .projects-grid {
   display: flex;
   flex-wrap: wrap;
@@ -827,7 +815,7 @@ textarea {
   padding-top: 14px;
 }
 
-/* Featured Project Wide Container */
+/* Featured Project */
 .featured-project {
   border-radius: 34px;
   padding: clamp(24px, 4vw, 44px);
@@ -883,7 +871,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   11. Skills Page: Stack & Tools Matrix
+   8. Section #skills: Stack & Tools Matrix
    -------------------------------------------------------------------------- */
 .skills-container {
   border-radius: var(--radius-card);
@@ -951,7 +939,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   12. Research Publications Section
+   9. Section #research: AI/ML Publications
    -------------------------------------------------------------------------- */
 .research-section {
   margin-bottom: clamp(48px, 6vw, 80px);
@@ -1061,7 +1049,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   13. Contact Section & Accessible Form
+   10. Section #contact: Contact Form & Container
    -------------------------------------------------------------------------- */
 .contact-container {
   border-radius: 36px;
@@ -1199,7 +1187,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   14. Centered Footer Across All Pages
+   11. Footer
    -------------------------------------------------------------------------- */
 .site-footer {
   padding: 24px 0;
@@ -1209,7 +1197,161 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   15. Keyframe Animations & Reduced Motion Compliance
+   12. Pure HTML/CSS Modal (:target) for CV Preview
+   -------------------------------------------------------------------------- */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(27, 35, 64, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 16px;
+}
+
+.modal:target {
+  display: grid;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-backdrop-close {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  cursor: default;
+}
+
+.modal-card {
+  position: relative;
+  z-index: 2;
+  background: var(--bg);
+  box-shadow: var(--surface-raised), 0 0 32px rgba(25, 227, 255, 0.45);
+  border: 2px solid var(--neon);
+  border-radius: var(--radius-card);
+  width: 92vw;
+  max-width: 920px;
+  height: 86vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalEnter 0.3s ease;
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid #d4dbea;
+  background: var(--bg);
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: var(--surface-raised-sm);
+  color: var(--text);
+  font-size: 24px;
+  line-height: 1;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.modal-close:hover {
+  transform: translateY(-2px);
+  color: var(--neon-text);
+  box-shadow: var(--surface-raised);
+}
+
+.modal-body {
+  flex: 1 1 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #f7f9fd;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body object {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.modal-fallback {
+  padding: 32px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* --------------------------------------------------------------------------
+   13. Scroll-Driven Section Reveal (Progressive Enhancement)
+   -------------------------------------------------------------------------- */
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  section[id] {
+    animation: sectionReveal linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. Float Animation & Reduced Motion Compliance
    -------------------------------------------------------------------------- */
 @keyframes float {
   0%, 100% {
@@ -1229,17 +1371,25 @@ textarea {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+
   .sphere-3d,
-  .floating-chip {
+  .floating-chip,
+  section[id] {
     animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
   }
 }
 
 /* --------------------------------------------------------------------------
-   16. Mobile-Specific Adjustments (< 760px)
+   15. Mobile Breakpoint (< 760px)
    -------------------------------------------------------------------------- */
 @media (max-width: 759px) {
-  /* Hero Stacks, Centered */
+  /* Hero stacks and centers */
   .hero-section {
     flex-direction: column-reverse;
     text-align: center;
@@ -1290,11 +1440,7 @@ textarea {
   .sphere-3d {
     width: 176px;
     height: 176px;
-    box-shadow: 14px 18px 36px #c0c9dd, -10px -10px 24px #ffffff, inset -5px -5px 12px rgba(192, 201, 221, 0.35);
-  }
-
-  .sphere-placeholder {
-    font-size: 11px;
+    box-shadow: 14px 18px 36px #c0c9dd, -10px -10px 24px #ffffff;
   }
 
   .floating-chip {
@@ -1323,7 +1469,7 @@ textarea {
     line-height: 1.25;
   }
 
-  /* Stack with 22px padding */
+  /* Component stack padding: 22px */
   .project-card {
     padding: 22px;
     border-radius: 24px;
@@ -1366,10 +1512,17 @@ textarea {
     margin-left: 0;
     margin-top: 4px;
   }
+
+  /* Mobile CV Modal */
+  .modal-card {
+    width: 100%;
+    height: 90vh;
+    border-radius: 24px;
+  }
 }
 
 /* --------------------------------------------------------------------------
-   17. Tablet & Up Breakpoint (>= 760px)
+   16. Tablet & Up Breakpoint (>= 760px)
    -------------------------------------------------------------------------- */
 @media (min-width: 760px) {
   body {
@@ -1398,7 +1551,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   18. Desktop & Large Screens (>= 1024px)
+   17. Desktop & Large Screens (>= 1024px)
    -------------------------------------------------------------------------- */
 @media (min-width: 1024px) {
   .hero-section {
